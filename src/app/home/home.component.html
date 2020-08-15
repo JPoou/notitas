@@ -1,0 +1,11 @@
+<div class="card-columns my-4">
+
+  <div class="card p-3" *ngFor="let note of notes; index as i; first as isFirst">
+    <div class="card-body">
+      <h5 class="card-title">{{ note.title }}</h5>
+      <p class="card-text">{{ note.body }}</p>
+      <p class="card-text"><small class="text-muted">{{ note.updatedAt | date:'medium' }}</small></p>
+    </div>
+  </div>
+
+</div>
