@@ -5,6 +5,7 @@
       <h5 class="card-title">{{ note.title }}</h5>
       <p class="card-text">{{ note.body }}</p>
       <p class="card-text"><small class="text-muted">{{ note.updatedAt | date:'medium' }}</small></p>
+      <button class="btn btn-sm btn-outline-info" [routerLink]="[ '/note/update', this.note.id ]">Edit</button>
     </div>
   </div>
 
