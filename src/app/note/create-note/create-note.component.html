@@ -2,14 +2,14 @@
   <div class="card my-5 border-0 shadow">
     <div class="card-body">
       <h2 class="display-4">To share!</h2>
-      <form>
+      <form #f="ngForm" (ngSubmit)="onSubmit()" ngNativeValidate>
         <div class="form-group">
-          <label for="email">Title</label>
-          <input type="email" class="form-control" id="email">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="note.title" #ctrl="ngModel" required>
         </div>
         <div class="form-group">
           <label for="body">Body</label>
-          <textarea class="form-control" name="body" id="body" cols="30" rows="10"></textarea>
+          <textarea class="form-control" name="body" id="body" cols="30" rows="10" [(ngModel)]="note.body" #ctrl="ngModel" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
       </form>

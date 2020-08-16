@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {NoteService} from '../../services/note.service';
+import {Note} from '../../models/note.model';
 
 @Component({
   selector: 'app-create-note',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateNoteComponent implements OnInit {
 
-  constructor() { }
+  public note: Note = {
+    title: '',
+    body: '',
+    userId: 0
+  };
+  constructor(private noteService: NoteService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit(): void {
+    this.noteService.store(this.note).subscribe(response => this.route.navigate(['home']) );
+  }
 }
