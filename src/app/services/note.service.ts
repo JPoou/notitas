@@ -17,4 +17,8 @@ export class NoteService {
   store(note: Note): Observable<any> {
     return this.http.post('http://localhost:8585/notes', note);
   }
+
+  getById(noteId: number): Observable<any> {
+    return this.http.get('http://localhost:8585/notes/' + noteId);
+  }
 }
