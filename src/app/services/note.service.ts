@@ -21,4 +21,8 @@ export class NoteService {
   getById(noteId: number): Observable<any> {
     return this.http.get('http://localhost:8585/notes/' + noteId);
   }
+
+  update(note: Note): Observable<any> {
+    return this.http.put('http://localhost:8585/notes', note);
+  }
 }

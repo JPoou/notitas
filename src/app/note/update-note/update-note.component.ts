@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Note} from '../../models/note.model';
 import {NoteService} from '../../services/note.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-update-note',
@@ -17,7 +17,7 @@ export class UpdateNoteComponent implements OnInit {
     userId: 0
   };
 
-  constructor(private noteService: NoteService, private route: ActivatedRoute) { }
+  constructor(private noteService: NoteService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.noteId = Number(this.route.snapshot.paramMap.get("id"));
@@ -27,6 +27,6 @@ export class UpdateNoteComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Send');
+    this.noteService.update(this.note).subscribe(() => this.router.navigate(['home']));
   }
 }
