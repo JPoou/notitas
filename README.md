@@ -1,6 +1,6 @@
 # Notitas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
+Proyecto de angular, que incluye un CRUD de notas simples.
 
 ## Development server
 
